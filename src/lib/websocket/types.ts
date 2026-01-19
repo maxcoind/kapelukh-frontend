@@ -52,14 +52,37 @@ export interface PaymentRead {
   date: string
 }
 
-export interface EventMessage {
+export interface PaymentEventMessage {
   type: 'event'
-  topic: Topic
+  topic: 'payment'
   event_type: EventType
   subscription_id: string
-  data: PaymentRead | TelegramUserRead | SurveyRead
+  data: PaymentRead
   timestamp: string
 }
+
+export interface TelegramUserEventMessage {
+  type: 'event'
+  topic: 'telegram_user'
+  event_type: EventType
+  subscription_id: string
+  data: TelegramUserRead
+  timestamp: string
+}
+
+export interface SurveyEventMessage {
+  type: 'event'
+  topic: 'survey'
+  event_type: EventType
+  subscription_id: string
+  data: SurveyRead
+  timestamp: string
+}
+
+export type EventMessage =
+  | PaymentEventMessage
+  | TelegramUserEventMessage
+  | SurveyEventMessage
 
 export interface PongMessage {
   type: 'pong'
