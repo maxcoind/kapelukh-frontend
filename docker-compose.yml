@@ -7,7 +7,7 @@ services:
         VITE_BASE_URL: ${VITE_BASE_URL:-http://localhost:8000}
         VITE_WS_URL: ${VITE_WS_URL:-ws://localhost:8000/ws}
     ports:
-      - '127.0.0.1:3000:3000'
+      - '127.0.0.1:3000:80'
     environment:
       - NODE_ENV=production
     restart: unless-stopped
